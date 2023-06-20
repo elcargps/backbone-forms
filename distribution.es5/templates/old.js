@@ -3,9 +3,12 @@
  *
  * 'data-*' attributes control where elements are placed
  */
-define(['jquery', 'underscore', 'backbone', 'backbone-forms'], function($, _, Backbone, Form) {
+import Backbone from 'backbone';
+import Form from 'backbone-forms';
+import $ from 'jquery';
+import _ from 'underscore';
 
-    
+  
   /**
    * Templates to match those used previous versions of Backbone Form, i.e. <= 0.11.0.
    * NOTE: These templates are deprecated.
@@ -100,5 +103,3 @@ define(['jquery', 'underscore', 'backbone', 'backbone-forms'], function($, _, Ba
   }
 
 
-
-});

@@ -3,9 +3,12 @@
  *
  * 'data-*' attributes control where elements are placed
  */
-define(['jquery', 'underscore', 'backbone', 'backbone-forms'], function($, _, Backbone, Form) {
+import Backbone from 'backbone';
+import Form from 'backbone-forms';
+import $ from 'jquery';
+import _ from 'underscore';
 
-  
+
   /**
    * Bootstrap 3 templates
    */
@@ -84,5 +87,3 @@ define(['jquery', 'underscore', 'backbone', 'backbone-forms'], function($, _, Ba
 
   }
 
-
-});

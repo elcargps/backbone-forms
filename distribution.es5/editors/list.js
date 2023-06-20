@@ -1,6 +1,9 @@
-define(['jquery', 'underscore', 'backbone', 'backbone-forms'], function($, _, Backbone, Form) {
+import Backbone from 'backbone';
+import Form from 'backbone-forms';
+import $ from 'jquery';
+import _ from 'underscore';
 
-  /**
+/**
  * List editor
  *
  * An array editor. Creates a list of other editor items.
@@ -685,5 +688,3 @@ Form.editors.List.NestedModel = Form.editors.List.Modal.extend({
   }
 });
 
-
-});

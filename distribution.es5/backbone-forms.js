@@ -1,29 +1,21 @@
 /**
  * Backbone Forms v0.14.2
  *
- * Copyright (c) 2014 Charles Davison, Pow Media Ltd
+ * NOTE:
+ * This version is for use with RequireJS
+ * If using regular <script> tags to include your files, use backbone-forms.min.js
+ *
+ * Copyright (c) 2013 Charles Davison, Pow Media Ltd
  *
  * License and more information at:
  * http://github.com/powmedia/backbone-forms
  */
-;(function(root) {
-
-  //DEPENDENCIES
-  //CommonJS
-  if (typeof exports !== 'undefined' && typeof require !== 'undefined') {
-    var _ = root._ || require('underscore'),
-        Backbone = root.Backbone || require('backbone');
-  }
-
-  //Browser
-  else {
-    var _ = root._,
-        Backbone = root.Backbone;
-  }
+import Backbone from 'backbone';
+import $ from 'jquery';
+import _ from 'underscore';
 
 
-  //SOURCE
-  //==================================================================================================
+//==================================================================================================
 //FORM
 //==================================================================================================
 
@@ -2632,12 +2624,10 @@ Form.editors.DateTime = Form.editors.Base.extend({
 
 
 
-  //Metadata
-  Form.VERSION = '0.14.2';
+//Metadata
+Form.VERSION = '0.14.2';
 
+//Exports
+Backbone.Form = Form;
 
-  //Exports
-  Backbone.Form = Form;
-  if (typeof module !== 'undefined') module.exports = Form;
-
-})(window || global || this);
+export default Form;

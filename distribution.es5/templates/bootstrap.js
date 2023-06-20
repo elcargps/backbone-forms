@@ -3,14 +3,17 @@
  *
  * 'data-*' attributes control where elements are placed
  */
-define(['jquery', 'underscore', 'backbone', 'backbone-forms'], function($, _, Backbone, Form) {
+import Backbone from 'backbone';
+import Form from 'backbone-forms';
+import $ from 'jquery';
+import _ from 'underscore';
 
-  
+
   /**
-   * Bootstrap 3 templates
+   * Bootstrap 2 templates
    */
   Form.template = _.template('\
-    <form class="form-horizontal" role="form">\
+    <form class="form-horizontal">\
       <div data-fieldsets></div>\
       <% if (submitButton) { %>\
         <button type="submit" class="btn"><%= submitButton %></button>\
@@ -29,15 +32,15 @@ define(['jquery', 'underscore', 'backbone', 'backbone-forms'], function($, _, Ba
 
 
   Form.Field.template = _.template('\
-    <div class="form-group field-<%= key %>">\
-      <label class="col-sm-2 control-label" for="<%= editorId %>">\
+    <div class="control-group field-<%= key %>">\
+      <label class="control-label" for="<%= editorId %>">\
         <% if (titleHTML){ %><%= titleHTML %>\
         <% } else { %><%- title %><% } %>\
       </label>\
-      <div class="col-sm-10">\
+      <div class="controls">\
         <span data-editor></span>\
-        <p class="help-block" data-error></p>\
-        <p class="help-block"><%= help %></p>\
+        <div class="help-inline" data-error></div>\
+        <div class="help-block"><%= help %></div>\
       </div>\
     </div>\
   ');
@@ -53,18 +56,12 @@ define(['jquery', 'underscore', 'backbone', 'backbone-forms'], function($, _, Ba
     </div>\
   ');
 
-  Form.editors.Base.prototype.className = 'form-control';
-  Form.editors.Checkbox.prototype.className = 'checkbox';
-  Form.editors.Checkboxes.prototype.className = 'checkbox';
-  Form.editors.Radio.prototype.className = 'radio';
-  Form.Field.errorClassName = 'has-error';
-
 
   if (Form.editors.List) {
 
     Form.editors.List.template = _.template('\
       <div class="bbf-list">\
-        <ul class="list-unstyled clearfix" data-items></ul>\
+        <ul class="unstyled clearfix" data-items></ul>\
         <button type="button" class="btn bbf-add" data-action="add">Add</button>\
       </div>\
     ');
@@ -76,7 +73,7 @@ define(['jquery', 'underscore', 'backbone', 'backbone-forms'], function($, _, Ba
         <button type="button" class="btn bbf-del" data-action="remove">&times;</button>\
       </li>\
     ');
-
+    
 
     Form.editors.List.Object.template = Form.editors.List.NestedModel.template = _.template('\
       <div class="bbf-list-modal"><%= summary %></div>\
@@ -84,5 +81,3 @@ define(['jquery', 'underscore', 'backbone', 'backbone-forms'], function($, _, Ba
 
   }
 
-
-});
