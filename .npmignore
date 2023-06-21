@@ -1,0 +1,6 @@
+examples/
+lib/
+scripts/
+src/
+test/
+.*
